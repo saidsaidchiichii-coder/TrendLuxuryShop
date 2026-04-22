@@ -1,10 +1,13 @@
 export default async function handler(req, res) {
 
-  // GET test
+  // CORS (important for store)
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST");
+
   if (req.method === "GET") {
     return res.status(200).json({
       ok: true,
-      message: "Groq API working ✔️ Use POST"
+      message: "AI API working ✔️"
     });
   }
 
@@ -13,7 +16,6 @@ export default async function handler(req, res) {
   }
 
   try {
-
     const body = typeof req.body === "string"
       ? JSON.parse(req.body)
       : req.body;
@@ -24,7 +26,6 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Message required" });
     }
 
-    // 🤖 GROQ API CALL
     const response = await fetch(
       "https://api.groq.com/openai/v1/chat/completions",
       {
@@ -38,7 +39,7 @@ export default async function handler(req, res) {
           messages: [
             {
               role: "system",
-              content: "You are a helpful assistant."
+              content: "You are an AI assistant for an ecommerce store. Help users choose products."
             },
             {
               role: "user",
@@ -46,28 +47,26 @@ export default async function handler(req, res) {
             }
           ],
           temperature: 0.7,
-          max_tokens: 1024
+          max_tokens: 800
         })
       }
     );
 
     const data = await response.json();
 
-    // ❌ handle errors
     if (!response.ok) {
       return res.status(500).json({
-        error: data.error?.message || "Groq API error"
+        error: data.error?.message || "AI error"
       });
     }
 
-    // ✅ success
     return res.status(200).json({
       reply: data.choices?.[0]?.message?.content || "No response"
     });
 
   } catch (err) {
     return res.status(500).json({
-      error: err.message || "Server error"
+      error: err.message
     });
   }
 }
