@@ -1,308 +1,449 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TrendLuxuryShop - Cinematic AI Luxury Experience</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2300ff88'>🛍️</text></svg>">
-  <link rel="stylesheet" href="style.css">
-</head>
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600&display=swap');
 
-<body>
-  <!-- LOADING SCREEN -->
-  <div class="loading-screen" id="loading">
-    <div class="logo-spin">🛍️</div>
-    <div class="loading-text">Initializing AI Experience...</div>
-  </div>
+:root {
+    --primary: #ffffff;
+    --secondary: #0a0a0a;
+    --accent: #d4af37;
+    --text-muted: #888888;
+    --font-heading: 'Syncopate', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
 
-  <!-- PARTICLES SYSTEM -->
-  <div id="particles"></div>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  <!-- CINEMATIC NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-brand">
-      <span class="logo-icon">🛍️</span>
-      <span>TrendLuxuryShop</span>
-    </div>
-    <div class="nav-links">
-      <a href="#scene1" class="nav-link active" data-scroll="scene1">Home</a>
-      <a href="#scene2" class="nav-link" data-scroll="scene2">AI</a>
-      <a href="#scene3" class="nav-link" data-scroll="scene3">Products</a>
-      <a href="#scene4" class="nav-link" data-scroll="scene4">Chat</a>
-      <a href="#scene5" class="nav-link" data-scroll="scene5">Start</a>
-    </div>
-  </nav>
+html {
+    scroll-behavior: smooth;
+}
 
-  <!-- SCROLL SCENES -->
-  <section id="scene1" class="scene scene1 active">
-    <div class="brand-reveal">
-      <div class="brand-logo">TrendLuxuryShop</div>
-      <div class="brand-subtitle">
-        AI-powered Luxury Shopping Experience<br>
-        <span class="gradient-text">Cinematic 3D Discovery</span>
-      </div>
-    </div>
-  </section>
+body {
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
 
-  <section id="scene2" class="scene scene2">
-    <div class="ai-intro">
-      <h1 class="ai-title">Talk to AI</h1>
-      <div class="ai-box">
-        <div class="ai-input-container">
-          <input type="text" class="ai-input" placeholder="💭 Ask AI about any product..." id="aiInput">
-          <button class="ai-btn" id="aiSend">Ask AI</button>
-        </div>
-        <div class="ai-response" id="aiResponse"></div>
-      </div>
-    </div>
-  </section>
+/* Loader */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
 
-  <section id="scene3" class="scene scene3">
-    <div class="products-hero">
-      <div class="product-card" data-product="watch">
-        <div class="product-icon">⌚</div>
-        <h3 class="product-title">AI Smart Watch Ultra</h3>
-        <div class="product-price">$499</div>
-        <p class="product-desc">Health tracking • AI assistant • Sapphire crystal</p>
-      </div>
-      
-      <div class="product-card" data-product="headphones">
-        <div class="product-icon">🎧</div>
-        <h3 class="product-title">Quantum AirPods Pro</h3>
-        <div class="product-price">$299</div>
-        <p class="product-desc">Spatial audio • AI noise cancel • Titanium build</p>
-      </div>
-      
-      <div class="product-card" data-product="laptop">
-        <div class="product-icon">💻</div>
-        <h3 class="product-title">CyberBook Pro M3</h3>
-        <div class="product-price">$2,499</div>
-        <p class="product-desc">AI-accelerated • 8K display • Liquid metal</p>
-      </div>
-      
-      <div class="product-card" data-product="sneakers">
-        <div class="product-icon">👟</div>
-        <h3 class="product-title">HyperForce Sneakers</h3>
-        <div class="product-price">$249</div>
-        <p class="product-desc">Adaptive AI cushioning • Limited edition</p>
-      </div>
-    </div>
-  </section>
+.loader-content {
+    text-align: center;
+}
 
-  <section id="scene4" class="scene scene4">
-    <div class="ai-chat-container">
-      <h2 class="chat-title">AI Shopping Assistant</h2>
-      <div class="chat-box" id="chatBox">
-        <div class="ai-message">
-          <div class="ai-avatar">🤖</div>
-          <div class="message-content">
-            <p>Hi! I'm your AI shopping assistant. Ask me about products, styling tips, or comparisons! 🚀</p>
-          </div>
-        </div>
-      </div>
-      <div class="chat-input-container">
-        <input type="text" id="chatInput" class="chat-input" placeholder="💭 Type your question...">
-        <button class="ai-btn" id="chatSend">Send</button>
-      </div>
-    </div>
-  </section>
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+    display: block;
+}
 
-  <section id="scene5" class="scene scene5">
-    <div class="cta-hero">
-      <h1 class="cta-title">Discover the Future</h1>
-      <p class="cta-subtitle">of Luxury Shopping</p>
-      <div class="cta-buttons">
-        <button class="cta-primary ai-btn">Start Exploring</button>
-        <button class="cta-secondary glass-btn">Watch Demo</button>
-      </div>
-    </div>
-  </section>
+.progress-bar {
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    margin: 0 auto;
+}
 
-  <script>
-    // ADVANCED JAVASCRIPT FOR CINEMATIC EXPERIENCE
-    class CinematicShop {
-      constructor() {
-        this.currentScene = 0;
-        this.init();
-      }
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 30px 50px;
+    z-index: 1000;
+    mix-blend-mode: difference;
+}
 
-      init() {
-        this.createParticles();
-        this.initScrollSnap();
-        this.initNavbar();
-        this.initAI();
-        this.initProducts();
-        this.hideLoading();
-        this.initSmoothScroll();
-      }
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
-      createParticles() {
-        const container = document.getElementById('particles');
-        for (let i = 0; i < 80; i++) {
-          const particle = document.createElement('div');
-          particle.className = 'particle';
-          particle.style.left = Math.random() * 100 + '%';
-          particle.style.width = particle.style.height = (Math.random() * 6 + 2) + 'px';
-          particle.style.animationDuration = (Math.random() * 15 + 20) + 's';
-          particle.style.animationDelay = Math.random() * 20 + 's';
-          container.appendChild(particle);
-        }
-      }
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--primary);
+    letter-spacing: 5px;
+}
 
-      initScrollSnap() {
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-          if (!ticking) {
-            requestAnimationFrame(() => {
-              const scroll = window.scrollY;
-              const sceneHeight = window.innerHeight;
-              const newScene = Math.round(scroll / sceneHeight);
-              
-              if (newScene !== this.currentScene) {
-                this.currentScene = newScene;
-                this.updateScenes(newScene);
-                this.updateNavbar(newScene);
-              }
-              ticking = false;
-            });
-            ticking = true;
-          }
-        });
-      }
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary);
+    margin: 0 25px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: var(--transition);
+}
 
-      updateScenes(sceneIndex) {
-        document.querySelectorAll('.scene').forEach((scene, index) => {
-          scene.classList.toggle('active', index === sceneIndex);
-        });
-      }
+.nav-links a:hover {
+    color: var(--accent);
+}
 
-      updateNavbar(sceneIndex) {
-        document.querySelectorAll('.nav-link').forEach((link, index) => {
-          link.classList.toggle('active', index === sceneIndex);
-        });
-      }
+.nav-icons i {
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
 
-      initNavbar() {
-        document.querySelectorAll('.nav-link[data-scroll]').forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.getElementById(link.dataset.scroll);
-            const sceneIndex = Array.from(document.querySelectorAll('.scene')).indexOf(target);
-            window.scrollTo({ top: sceneIndex * window.innerHeight, behavior: 'smooth' });
-          });
-        });
-      }
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    position: relative;
+    overflow: hidden;
+}
 
-      initAI() {
-        const aiInput = document.getElementById('aiInput');
-        const aiSend = document.getElementById('aiSend');
-        const aiResponse = document.getElementById('aiResponse');
+.hero-content {
+    z-index: 2;
+    max-width: 600px;
+}
 
-        const responses = {
-          'watch': 'AI Smart Watch Ultra: 14-day battery, health AI, sapphire crystal. Perfect luxury fitness companion.',
-          'headphones': 'Quantum AirPods Pro: Spatial audio, AI noise cancellation, 30hr battery, titanium build.',
-          'laptop': 'CyberBook Pro M3: AI Neural Engine, 8K display, liquid metal, unmatched performance.',
-          'sneakers': 'HyperForce: Adaptive AI cushioning, self-lacing, limited edition luxury streetwear.',
-          'default': "That's an excellent choice! This product features cutting-edge AI technology, premium materials, and luxury craftsmanship. Want specific details?"
-        };
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 6vw;
+    line-height: 1;
+    margin-bottom: 20px;
+}
 
-        function showResponse(text) {
-          aiResponse.innerHTML = `<div class="response-text">${text}</div>`;
-          aiResponse.classList.add('show');
-        }
+.hero-title .outline {
+    -webkit-text-stroke: 1px var(--primary);
+    color: transparent;
+}
 
-        aiSend.addEventListener('click', () => {
-          const query = aiInput.value.toLowerCase();
-          aiInput.value = '';
-          setTimeout(() => showResponse(responses[query] || responses.default), 500);
-        });
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 400px;
+}
 
-        // Chat functionality
-        const chatInput = document.getElementById('chatInput');
-        const chatSend = document.getElementById('chatSend');
-        const chatBox = document.getElementById('chatBox');
+.hero-3d-container {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        chatSend.addEventListener('click', () => this.sendChatMessage(chatInput, chatBox));
-        chatInput.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') this.sendChatMessage(chatInput, chatBox);
-        });
-      }
+.main-watch {
+    width: 80%;
+    filter: drop-shadow(0 0 50px rgba(212, 175, 55, 0.2));
+    animation: float 6s ease-in-out infinite;
+}
 
-      sendChatMessage(input, chatBox) {
-        const text = input.value.trim();
-        if (!text) return;
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(5deg); }
+}
 
-        const message = document.createElement('div');
-        message.className = 'ai-message user-message';
-        message.innerHTML = `
-          <div class="ai-avatar">👤</div>
-          <div class="message-content"><p>${text}</p></div>
-        `;
-        chatBox.appendChild(message);
-        input.value = '';
+.btn {
+    padding: 15px 40px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: inline-block;
+    transition: var(--transition);
+    border: 1px solid var(--primary);
+}
 
-        setTimeout(() => {
-          const response = document.createElement('div');
-          response.className = 'ai-message';
-          response.innerHTML = `
-            <div class="ai-avatar">🤖</div>
-            <div class="message-content"><p>Great question! ${text.includes('watch') ? 'The Smart Watch Ultra features...' : 'This product offers premium AI features and luxury design.'}</p></div>
-          `;
-          chatBox.appendChild(response);
-          chatBox.scrollTop = chatBox.scrollHeight;
-        }, 1000);
-      }
+.btn-primary {
+    background: var(--primary);
+    color: var(--secondary);
+}
 
-      initProducts() {
-        document.querySelectorAll('.product-card').forEach((card, index) => {
-          card.style.animationDelay = `${index * 0.2}s`;
-          
-          card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateZ(100px) rotateX(10deg) rotateY(15deg) scale(1.05)';
-          });
-          
-          card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateZ(0) rotateX(0) rotateY(0) scale(1)';
-          });
-        });
-      }
+.btn-primary:hover {
+    background: transparent;
+    color: var(--primary);
+}
 
-      hideLoading() {
-        setTimeout(() => {
-          const loading = document.getElementById('loading');
-          loading.style.opacity = '0';
-          setTimeout(() => loading.style.display = 'none', 1000);
-        }, 2500);
-      }
+.scroll-indicator {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
 
-      initSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const target = document.getElementById(targetId);
-            const sceneIndex = Array.from(document.querySelectorAll('.scene')).indexOf(target);
-            window.scrollTo({
-              top: sceneIndex * window.innerHeight,
-              behavior: 'smooth'
-            });
-          });
-        });
-      }
+.scroll-indicator span {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+}
+
+.scroll-indicator .line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+/* Features Section */
+.features {
+    padding: 150px 0;
+    background: #0f0f0f;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.section-header {
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    letter-spacing: 10px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    background: #1a1a1a;
+    padding: 60px 40px;
+    border: 1px solid #333;
+    transition: var(--transition);
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.feature-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.feature-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+}
+
+/* Products Section */
+.products {
+    padding: 150px 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.product-item {
+    position: relative;
+}
+
+.product-img-wrapper {
+    background: #111;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.product-img-wrapper img {
+    width: 70%;
+    transition: var(--transition);
+}
+
+.product-item:hover .product-img-wrapper img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.product-item:hover .product-overlay {
+    opacity: 1;
+}
+
+.btn-add {
+    background: var(--primary);
+    color: var(--secondary);
+    border: none;
+    padding: 12px 25px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.product-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.price {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* Footer */
+.footer {
+    padding: 100px 0 50px;
+    border-top: 1px solid #222;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 80px;
+}
+
+.footer-info p {
+    margin-top: 20px;
+    color: var(--text-muted);
+    max-width: 300px;
+}
+
+.footer-links h4, .footer-social h4 {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.social-icons i:hover {
+    color: var(--accent);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 50px;
+    border-top: 1px solid #222;
+}
+
+.footer-bottom p {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
     }
+    .hero-content {
+        margin-bottom: 50px;
+    }
+    .hero-3d-container {
+        position: relative;
+        width: 100%;
+        right: 0;
+        top: 0;
+        transform: none;
+    }
+    .features-grid, .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-    // Initialize cinematic experience
-    document.addEventListener('DOMContentLoaded', () => {
-      window.app = new CinematicShop();
-    });
-
-    // Prevent horizontal scroll
-    window.addEventListener('scroll', (e) => {
-      if (window.scrollX > 0) window.scrollTo(0, window.scrollY);
-    }, { passive: false });
-  </script>
-</body>
-</html>
+@media (max-width: 768px) {
+    .features-grid, .products-grid, .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-title {
+        font-size: 12vw;
+    }
+    .navbar {
+        padding: 20px;
+    }
+    .nav-links {
+        display: none;
+    }
+}
