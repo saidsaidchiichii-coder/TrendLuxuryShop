@@ -1,56 +1,431 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TrendLuxuryShop</title>
+  <title>TrendLuxuryShop - AI-Powered 3D Luxury Store</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>">
+  <meta name="description" content="AI-Powered 3D Luxury Shopping Experience - Discover trending products with advanced AI recommendations">
 </head>
 
 <body>
-
-<header class="topbar">
-  <h1>TrendLuxuryShop</h1>
-  <p>AI-powered Luxury Shopping Experience</p>
-</header>
-
-<section class="hero">
-  <h2>Find Trending Products with AI</h2>
-
-  <div class="ai-box">
-    <input id="msg" placeholder="Ask AI about any product..." />
-    <button onclick="sendMessage()">Ask AI</button>
+  <!-- LOADING SCREEN -->
+  <div class="loading" id="loading">
+    <div class="loader"></div>
   </div>
 
-  <div id="response"></div>
-</section>
+  <!-- PARTICLE SYSTEM -->
+  <div id="particles"></div>
 
-<section class="products">
+  <!-- 3D NAVBAR -->
+  <nav class="navbar glass" id="navbar">
+    <div class="nav-brand">
+      <span class="logo">🛍️</span>
+      <span>TrendLuxuryShop</span>
+    </div>
+    <div class="nav-links">
+      <a href="#hero" class="nav-link active">Home</a>
+      <a href="#products" class="nav-link">Products</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#ai-chat" class="nav-link">AI Chat</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-3d cart-btn">🛒 0</button>
+      <button class="btn-3d">Login</button>
+    </div>
+  </nav>
 
-  <div class="card">
-    <h3>Smart Watch</h3>
-    <p>Fitness + health tracking AI-ready device</p>
-    <button onclick="askAI('Smart Watch review')">Ask AI</button>
+  <!-- HERO SECTION -->
+  <section id="hero" class="parallax">
+    <div class="hero-content fade-in">
+      <div class="hero-badge">🚀 AI-Powered Luxury</div>
+      <h1 class="hero-title">Discover Trending<br><span class="gradient-text">Luxury Products</span></h1>
+      <p class="hero-subtitle">Advanced AI recommendations • 3D Product Previews • Live Shopping Experience</p>
+      <div class="hero-buttons">
+        <a href="#products" class="cta-button primary">Shop Now</a>
+        <a href="#ai-chat" class="cta-button secondary">Talk to AI</a>
+      </div>
+    </div>
+    <div class="floating-cards">
+      <div class="float-card card-1">💎</div>
+      <div class="float-card card-2">⌚</div>
+      <div class="float-card card-3">🎧</div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
+  <section id="products">
+    <div class="container fade-in">
+      <div class="section-header">
+        <h2 class="section-title">Featured Products</h2>
+        <p class="section-subtitle">AI-curated luxury collection</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card tilt-card glass" data-tilt>
+          <div class="product-image">⌚</div>
+          <h3 class="product-title">AI Smart Watch Ultra</h3>
+          <div class="product-price">$499</div>
+          <p class="product-desc">Health tracking • AI assistant • 14-day battery</p>
+          <div class="product-actions">
+            <button class="btn-3d add-cart" data-product="watch">Add to Cart</button>
+            <button class="btn-3d ai-ask" data-ask="Smart Watch Ultra features">Ask AI</button>
+          </div>
+        </div>
+
+        <div class="product-card tilt-card glass" data-tilt>
+          <div class="product-image">🎧</div>
+          <h3 class="product-title">Quantum AirPods Pro</h3>
+          <div class="product-price">$299</div>
+          <p class="product-desc">Spatial audio • AI noise cancel • 30hr battery</p>
+          <div class="product-actions">
+            <button class="btn-3d add-cart" data-product="headphones">Add to Cart</button>
+            <button class="btn-3d ai-ask" data-ask="Quantum AirPods Pro specs">Ask AI</button>
+          </div>
+        </div>
+
+        <div class="product-card tilt-card glass" data-tilt>
+          <div class="product-image">💻</div>
+          <h3 class="product-title">CyberBook Pro M3</h3>
+          <div class="product-price">$2,499</div>
+          <p class="product-desc">AI-accelerated • 8K display • Liquid metal</p>
+          <div class="product-actions">
+            <button class="btn-3d add-cart" data-product="laptop">Add to Cart</button>
+            <button class="btn-3d ai-ask" data-ask="CyberBook Pro M3 performance">Ask AI</button>
+          </div>
+        </div>
+
+        <div class="product-card tilt-card glass" data-tilt>
+          <div class="product-image">👟</div>
+          <h3 class="product-title">HyperForce Sneakers</h3>
+          <div class="product-price">$249</div>
+          <p class="product-desc">Adaptive fit • AI cushioning • Limited edition</p>
+          <div class="product-actions">
+            <button class="btn-3d add-cart" data-product="sneakers">Add to Cart</button>
+            <button class="btn-3d ai-ask" data-ask="HyperForce Sneakers review">Ask AI</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section id="features" class="gradient-bg">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <p class="section-subtitle">Next-generation shopping experience</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-item slide-in-left">
+          <div class="feature-icon">🤖</div>
+          <h3>AI Recommendations</h3>
+          <p>Personalized product suggestions based on your style and preferences</p>
+        </div>
+        <div class="feature-item slide-in-left">
+          <div class="feature-icon">✨</div>
+          <h3>3D Previews</h3>
+          <p>Interactive 3D product visualization before you buy</p>
+        </div>
+        <div class="feature-item slide-in-left">
+          <div class="feature-icon">⚡</div>
+          <h3>Lightning Fast</h3>
+          <p>Instant checkout • Same-day delivery in major cities</p>
+        </div>
+        <div class="feature-item slide-in-left">
+          <div class="feature-icon">🛡️</div>
+          <h3>Secure Shopping</h3>
+          <p>End-to-end encryption • 100% money-back guarantee</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI CHAT SECTION -->
+  <section id="ai-chat">
+    <div class="container fade-in">
+      <div class="section-header">
+        <h2 class="section-title">AI Shopping Assistant</h2>
+        <p class="section-subtitle">Ask anything about products, styling, or shopping</p>
+      </div>
+      
+      <div class="ai-container glass">
+        <div class="ai-chatbox" id="aiChatbox">
+          <div class="ai-message welcome">
+            <div class="ai-avatar">🤖</div>
+            <div class="message-content">
+              <p>Hi! I'm your AI shopping assistant. Ask me about products, styling tips, or comparisons! 🚀</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ai-input-container">
+          <input type="text" id="aiInput" placeholder="💭 Ask me anything... (ex: 'Compare smartwatches')" />
+          <button id="aiSendBtn" class="btn-3d">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART MODAL -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content glass">
+      <div class="modal-header">
+        <h3>🛒 Shopping Cart</h3>
+        <button class="close-btn">&times;</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-total">
+        <span>Total: $<span id="cartTotal">0</span></span>
+        <button class="btn-3d checkout-btn">Checkout</button>
+      </div>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Wireless Headphones</h3>
-    <p>Premium bass & noise cancellation</p>
-    <button onclick="askAI('Headphones review')">Ask AI</button>
-  </div>
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>TrendLuxuryShop</h3>
+          <p>AI-Powered Luxury Shopping Experience</p>
+        </div>
+        <div class="footer-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Support</a>
+          <a href="#">Careers</a>
+        </div>
+        <div class="social-links">
+          <a href="#">📘</a>
+          <a href="#">📷</a>
+          <a href="#">🐦</a>
+          <a href="#">💼</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TrendLuxuryShop. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-  <div class="card">
-    <h3>Gaming Setup</h3>
-    <p>Full pro setup for gamers & creators</p>
-    <button onclick="askAI('Gaming setup ideas')">Ask AI</button>
-  </div>
+  <script>
+    // COMPLETE ADVANCED JAVASCRIPT INTEGRATION
+    class TrendLuxuryShop {
+      constructor() {
+        this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+        this.init();
+      }
 
-</section>
+      init() {
+        this.createParticles();
+        this.initScrollEffects();
+        this.initTiltEffects();
+        this.initAIChat();
+        this.updateCartUI();
+        this.hideLoading();
+        this.initNavbar();
+        this.initSmoothScroll();
+      }
 
-<footer>
-  <p>© 2026 TrendLuxuryShop</p>
-</footer>
+      createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.animationDelay = Math.random() * 20 + 's';
+          particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+          particlesContainer.appendChild(particle);
+        }
+      }
 
-<script src="script.js"></script>
-</body>
-</html>
+      initScrollEffects() {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in, .slide-in-left').forEach(el => {
+          observer.observe(el);
+        });
+      }
+
+      initTiltEffects() {
+        document.querySelectorAll('[data-tilt]').forEach(card => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+          });
+          
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+          });
+        });
+      }
+
+      initAIChat() {
+        const aiInput = document.getElementById('aiInput');
+        const aiSendBtn = document.getElementById('aiSendBtn');
+        const aiChatbox = document.getElementById('aiChatbox');
+
+        const responses = {
+          'smart watch': 'The AI Smart Watch Ultra features health tracking, AI voice assistant, 14-day battery life, and sapphire crystal display. Perfect for luxury fitness enthusiasts!',
+          'headphones': 'Quantum AirPods Pro offer spatial audio, adaptive noise cancellation powered by AI, 30hr battery, and premium titanium build.',
+          'laptop': 'CyberBook Pro M3 has AI-accelerated Neural Engine, 8K Retina display, liquid metal chassis, and 22hr battery life.',
+          'sneakers': 'HyperForce Sneakers feature adaptive AI cushioning, self-tightening laces, and limited edition colorways.',
+          'compare': 'Smart Watch Ultra offers better battery (14d) vs AirPods Pro (30h audio). Laptop dominates for productivity.',
+          'features': 'All products feature AI integration, premium materials, and 1-year warranty with 30-day returns.',
+          'default': 'That\'s a great question! This product features AI-powered features, premium materials, and luxury design. Want specific details?'
+        };
+
+        function addMessage(text, isUser = false) {
+          const message = document.createElement('div');
+          message.className = `ai-message ${isUser ? 'user' : 'ai'}`;
+          message.innerHTML = `
+            <div class="ai-avatar">${isUser ? '👤' : '🤖'}</div>
+            <div class="message-content">
+              <p>${text}</p>
+            </div>
+          `;
+          aiChatbox.appendChild(message);
+          aiChatbox.scrollTop = aiChatbox.scrollHeight;
+        }
+
+        function getAIResponse(query) {
+          query = query.toLowerCase();
+          for (let key in responses) {
+            if (query.includes(key)) return responses[key];
+          }
+          return responses.default;
+        }
+
+        aiSendBtn.addEventListener('click', () => this.sendAIQuery(aiInput, aiChatbox, addMessage, getAIResponse));
+        aiInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') this.sendAIQuery(aiInput, aiChatbox, addMessage, getAIResponse);
+        });
+
+        // AI Ask buttons
+        document.querySelectorAll('.ai-ask').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const query = e.target.dataset.ask;
+            addMessage(query, true);
+            setTimeout(() => addMessage(getAIResponse(query)), 800);
+          });
+        });
+      }
+
+      sendAIQuery(input, chatbox, addMessage, getResponse) {
+        const query = input.value.trim();
+        if (!query) return;
+        
+        addMessage(query, true);
+        input.value = '';
+        
+        setTimeout(() => {
+          const response = getResponse(query);
+          addMessage(response);
+        }, 1000);
+      }
+
+      initNavbar() {
+        window.addEventListener('scroll', () => {
+          const navbar = document.getElementById('navbar');
+          if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+
+        // Smooth active nav
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            target.scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+      }
+
+      initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+      }
+
+      updateCartUI() {
+        const cartBtn = document.querySelector('.cart-btn');
+        const total = this.cart.reduce((sum, item) => sum + item.price, 0);
+        cartBtn.textContent = `🛒 ${this.cart.length}`;
+        cartBtn.dataset.total = total;
+        document.getElementById('cartTotal').textContent = total;
+      }
+
+      addToCart(productName, price) {
+        this.cart.push({ name: productName, price });
+        localStorage.setItem('cart', JSON.stringify(this.cart));
+        this.updateCartUI();
+        this.showNotification(`${productName} added to cart!`);
+      }
+
+      hideLoading() {
+        setTimeout(() => {
+          document.getElementById('loading').style.opacity = '0';
+          setTimeout(() => document.getElementById('loading').style.display = 'none', 500);
+        }, 2000);
+      }
+
+      showNotification(message) {
+        const notification = document.createElement('div');
+        notification.className = 'notification glass';
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 3000);
+      }
+    }
+
+    // Initialize app
+    document.addEventListener('DOMContentLoaded', () => {
+      new TrendLuxuryShop();
+    });
+
+    // Cart functionality
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('add-cart')) {
+        const product = e.target.dataset.product;
+        const prices = { watch: 499, headphones: 299, laptop: 2499, sneakers: 249 };
+        app.addToCart(product.charAt(0).toUpperCase() + product.slice(1), prices[product]);
+      }
+      
+      if (e.target.classList.contains('cart-btn') || e.target.closest('.cart-btn')) {
+        document.getElementById('cartModal').style.display = 'flex';
+      }
+      
+      if (e.target.classList.contains('close-btn') || e.target.closest('.close-btn')) {
+        document.getElementById('cartModal').style.display = 'none';
+      }
+    });
+
+    // Additional CSS for dynamic elements
+    const style = document.createElement('style');
+    style.textContent = `
+      .
