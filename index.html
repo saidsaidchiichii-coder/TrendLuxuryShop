@@ -9,46 +9,48 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <h1>TrendLuxuryShop</h1>
-    <p>Smart AI-powered Shopping Experience</p>
-  </header>
+<header class="topbar">
+  <h1>TrendLuxuryShop</h1>
+  <p>AI-powered Luxury Shopping Experience</p>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h2>Find the best trending products with AI</h2>
-    <input id="msg" placeholder="Ask AI about any product...">
+<section class="hero">
+  <h2>Find Trending Products with AI</h2>
+
+  <div class="ai-box">
+    <input id="msg" placeholder="Ask AI about any product..." />
     <button onclick="sendMessage()">Ask AI</button>
-    <p id="response"></p>
-  </section>
+  </div>
 
-  <!-- PRODUCTS -->
-  <section class="products">
+  <div id="response"></div>
+</section>
 
-    <div class="card">
-      <h3>Smart Watch</h3>
-      <p>Track fitness & health</p>
-      <button onclick="askAI('Tell me about smart watches')">
-        Ask AI
-      </button>
-    </div>
+<section class="products">
 
-    <div class="card">
-      <h3>Wireless Headphones</h3>
-      <p>High quality sound</p>
-      <button onclick="askAI('Are these headphones good?')">
-        Ask AI
-      </button>
-    </div>
+  <div class="card">
+    <h3>Smart Watch</h3>
+    <p>Fitness + health tracking AI-ready device</p>
+    <button onclick="askAI('Smart Watch review')">Ask AI</button>
+  </div>
 
-  </section>
+  <div class="card">
+    <h3>Wireless Headphones</h3>
+    <p>Premium bass & noise cancellation</p>
+    <button onclick="askAI('Headphones review')">Ask AI</button>
+  </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 TrendLuxuryShop</p>
-  </footer>
+  <div class="card">
+    <h3>Gaming Setup</h3>
+    <p>Full pro setup for gamers & creators</p>
+    <button onclick="askAI('Gaming setup ideas')">Ask AI</button>
+  </div>
 
-  <script src="script.js"></script>
+</section>
+
+<footer>
+  <p>© 2026 TrendLuxuryShop</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
