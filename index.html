@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AETHER - Experience the pinnacle of luxury horological engineering and avant-garde design.">
-    <title>AETHER | Advanced Timepieces</title>
+    <meta name="description" content="AETHER - Premium luxury watches crafted with precision and elegance. Explore our exclusive collection of timepieces.">
+    <meta name="keywords" content="luxury watches, chronograph, diving watch, premium timepieces, AETHER">
+    <meta property="og:title" content="AETHER | Luxury Timepieces">
+    <meta property="og:description" content="Experience the pinnacle of horological engineering and avant-garde design.">
+    <meta property="og:image" content="assets/chronograph_elite.png">
+    <title>AETHER | Premium Luxury Watches</title>
     
     <!-- Preconnect to Font CDNs -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +17,12 @@
     
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
 </head>
 <body>
     <!-- Accessibility Skip Link -->
-    <a href="#main-content" class="skip-link">Skip to content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- Loader -->
     <div class="loader" role="alert" aria-busy="true">
         <div class="loader-content">
             <span class="logo-text">AETHER</span>
@@ -28,33 +32,35 @@
         </div>
     </div>
 
+    <!-- Navigation -->
     <nav class="navbar" role="navigation" aria-label="Main Navigation">
         <div class="nav-container">
-            <a href="#" class="logo" aria-label="AETHER Home">AETHER</a>
+            <a href="#home" class="logo" aria-label="AETHER Home">AETHER</a>
             <div class="nav-links">
+                <a href="#home">Home</a>
                 <a href="#collection">Collection</a>
-                <a href="#experience">Experience</a>
-                <a href="#shop">Shop</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
             </div>
             <div class="nav-icons">
                 <button class="nav-btn" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <button class="nav-btn" aria-label="Cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                <button class="nav-btn cart-btn" aria-label="Shopping Cart"><i class="fa-solid fa-cart-shopping"></i></button>
             </div>
         </div>
     </nav>
 
-    <main id="main-content" data-scroll-container>
-        <!-- Hero Section -->
-        <section class="hero" data-scroll-section>
-            <div class="hero-content" data-scroll data-scroll-speed="-1">
+    <main id="main-content">
+        <!-- ========== HOME SECTION ========== -->
+        <section class="hero" id="home">
+            <div class="hero-content">
                 <h1 class="hero-title">PRECISION<br><span class="outline">REDEFINED</span></h1>
                 <p class="hero-subtitle">Experience the pinnacle of horological engineering and avant-garde design.</p>
                 <div class="hero-cta">
-                    <a href="#shop" class="btn btn-primary">Explore Now</a>
+                    <a href="#collection" class="btn btn-primary">Explore Collection</a>
                 </div>
             </div>
-            <div class="hero-3d-container" data-scroll data-scroll-speed="1.5">
-                <img src="assets/product1.png" alt="AETHER Legacy Gold Luxury Watch" class="floating-img main-watch" width="800" height="800" loading="eager">
+            <div class="hero-3d-container">
+                <img src="assets/chronograph_elite.png" alt="AETHER Chronograph Elite luxury watch" class="floating-img main-watch" width="800" height="800" loading="eager">
             </div>
             <div class="scroll-indicator" aria-hidden="true">
                 <span>SCROLL</span>
@@ -62,195 +68,406 @@
             </div>
         </section>
 
-        <!-- Features Section -->
-        <section class="features" id="experience" data-scroll-section>
+        <!-- ========== COLLECTION SECTION ========== -->
+        <section class="collection" id="collection">
             <div class="container">
-                <div class="section-header" data-scroll data-scroll-speed="0.5">
+                <div class="section-header">
+                    <h2 class="section-title">THE COLLECTION</h2>
+                    <p class="section-subtitle">Handcrafted masterpieces for the discerning collector</p>
+                </div>
+
+                <div class="products-grid">
+                    <!-- Product 1: Chronograph Elite -->
+                    <article class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/chronograph_elite.png" alt="AETHER Chronograph Elite" class="product-image" width="400" height="400" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn-view" data-product="chronograph">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Chronograph Elite</h3>
+                            <p class="product-description">Precision timing with triple sub-dials and sapphire crystal</p>
+                            <div class="product-footer">
+                                <span class="product-price">$4,200</span>
+                                <button class="btn-add-cart" aria-label="Add Chronograph Elite to cart">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 2: Ocean Master -->
+                    <article class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/ocean_master.png" alt="AETHER Ocean Master" class="product-image" width="400" height="400" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn-view" data-product="ocean">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Ocean Master</h3>
+                            <p class="product-description">Professional diver's watch with 300m water resistance</p>
+                            <div class="product-footer">
+                                <span class="product-price">$3,850</span>
+                                <button class="btn-add-cart" aria-label="Add Ocean Master to cart">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 3: Legacy Gold -->
+                    <article class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/legacy_gold.png" alt="AETHER Legacy Gold" class="product-image" width="400" height="400" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn-view" data-product="legacy">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Legacy Gold</h3>
+                            <p class="product-description">18k gold classic elegance with integrated bracelet</p>
+                            <div class="product-footer">
+                                <span class="product-price">$5,100</span>
+                                <button class="btn-add-cart" aria-label="Add Legacy Gold to cart">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 4: Titanium Shadow -->
+                    <article class="product-card">
+                        <div class="product-image-wrapper">
+                            <img src="assets/titanium_shadow.png" alt="AETHER Titanium Shadow" class="product-image" width="400" height="400" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn-view" data-product="titanium">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Titanium Shadow</h3>
+                            <p class="product-description">Matte black DLC titanium with skeletonized dial</p>
+                            <div class="product-footer">
+                                <span class="product-price">$6,300</span>
+                                <button class="btn-add-cart" aria-label="Add Titanium Shadow to cart">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Product 5: Aether Pro Limited Edition -->
+                    <article class="product-card featured">
+                        <div class="limited-badge">LIMITED</div>
+                        <div class="product-image-wrapper">
+                            <img src="assets/aether_pro.png" alt="AETHER Pro Limited Edition" class="product-image" width="400" height="400" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn-view" data-product="pro">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Aether Pro Limited</h3>
+                            <p class="product-description">Platinum case with meteorite dial - Only 50 pieces</p>
+                            <div class="product-footer">
+                                <span class="product-price">$8,900</span>
+                                <button class="btn-add-cart" aria-label="Add Aether Pro Limited to cart">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== FEATURES SECTION ========== -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
                     <h2 class="section-title">ENGINEERING EXCELLENCE</h2>
                 </div>
                 <div class="features-grid">
-                    <article class="feature-card" data-scroll data-scroll-speed="1">
-                        <div class="card-inner">
-                            <span class="card-num">01</span>
-                            <h3>Sapphire Crystal</h3>
-                            <p>Unmatched clarity and scratch resistance for eternal brilliance.</p>
-                        </div>
+                    <article class="feature-card">
+                        <span class="feature-icon">◆</span>
+                        <h3>Sapphire Crystal</h3>
+                        <p>Unmatched clarity and scratch resistance for eternal brilliance and perfect legibility.</p>
                     </article>
-                    <article class="feature-card" data-scroll data-scroll-speed="1.2">
-                        <div class="card-inner">
-                            <span class="card-num">02</span>
-                            <h3>Titanium Case</h3>
-                            <p>Aerospace-grade durability with a weightless feel on the wrist.</p>
-                        </div>
+                    <article class="feature-card">
+                        <span class="feature-icon">◆</span>
+                        <h3>Titanium Case</h3>
+                        <p>Aerospace-grade durability with a weightless feel on the wrist and superior resistance.</p>
                     </article>
-                    <article class="feature-card" data-scroll data-scroll-speed="1.4">
-                        <div class="card-inner">
-                            <span class="card-num">03</span>
-                            <h3>Automatic Caliber</h3>
-                            <p>Self-winding movement with a 72-hour power reserve.</p>
-                        </div>
+                    <article class="feature-card">
+                        <span class="feature-icon">◆</span>
+                        <h3>Automatic Caliber</h3>
+                        <p>Self-winding movement with a 72-hour power reserve and Swiss precision engineering.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Products Section -->
-        <section class="products" id="shop" data-scroll-section>
-            <div class="container" id="collection">
+        <!-- ========== ABOUT SECTION ========== -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">THE AETHER STORY</h2>
+                        <p>Founded in 2024, AETHER represents the convergence of Swiss horological mastery and contemporary design philosophy. Each timepiece is meticulously crafted by master watchmakers who dedicate their expertise to creating instruments of precision and beauty.</p>
+                        <p>Our commitment to excellence extends beyond aesthetics. Every AETHER watch undergoes rigorous testing to ensure it meets the highest standards of accuracy, durability, and performance. We believe that a luxury watch should be as reliable as it is beautiful.</p>
+                        <p>From the selection of premium materials to the final assembly, every detail is considered. Our collections represent a philosophy: that true luxury is timeless, understated, and earned through dedication to craft.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Master Craftsmen</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2,500+</span>
+                            <span class="stat-label">Watches Crafted</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">45</span>
+                            <span class="stat-label">Countries Worldwide</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT SECTION ========== -->
+        <section class="contact" id="contact">
+            <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">THE COLLECTION</h2>
+                    <h2 class="section-title">GET IN TOUCH</h2>
+                    <p class="section-subtitle">We'd love to hear from you</p>
                 </div>
-                <div class="products-grid">
-                    <div class="product-item" data-scroll>
-                        <div class="product-img-wrapper">
-                            <img src="assets/product2.png" alt="AETHER Chronograph Elite" width="400" height="400" loading="lazy">
-                            <div class="product-overlay">
-                                <button class="btn-add">ADD TO CART</button>
-                            </div>
+
+                <div class="contact-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
-                        <div class="product-info">
-                            <h3>Chronograph Elite</h3>
-                            <p class="price" aria-label="Price: 4,200 Dollars">$4,200</p>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
                         </div>
-                    </div>
-                    <div class="product-item" data-scroll>
-                        <div class="product-img-wrapper">
-                            <img src="assets/product3.png" alt="AETHER Ocean Master" width="400" height="400" loading="lazy">
-                            <div class="product-overlay">
-                                <button class="btn-add">ADD TO CART</button>
-                            </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
                         </div>
-                        <div class="product-info">
-                            <h3>Ocean Master</h3>
-                            <p class="price" aria-label="Price: 3,850 Dollars">$3,850</p>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <h4>Address</h4>
+                            <p>123 Luxury Avenue<br>Geneva, Switzerland</p>
                         </div>
-                    </div>
-                    <div class="product-item" data-scroll>
-                        <div class="product-img-wrapper">
-                            <img src="assets/product1.png" alt="AETHER Legacy Gold" width="400" height="400" loading="lazy">
-                            <div class="product-overlay">
-                                <button class="btn-add">ADD TO CART</button>
-                            </div>
+                        <div class="info-item">
+                            <h4>Phone</h4>
+                            <p>+41 22 123 4567</p>
                         </div>
-                        <div class="product-info">
-                            <h3>Legacy Gold</h3>
-                            <p class="price" aria-label="Price: 5,100 Dollars">$5,100</p>
+                        <div class="info-item">
+                            <h4>Email</h4>
+                            <p>hello@aether.watch</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="footer" data-scroll-section>
+        <!-- ========== FOOTER ========== -->
+        <footer class="footer">
             <div class="container">
                 <div class="footer-grid">
-                    <div class="footer-info">
-                        <span class="logo">AETHER</span>
-                        <p>Defining the future of luxury timekeeping since 2024.</p>
+                    <div class="footer-section">
+                        <h4 class="footer-logo">AETHER</h4>
+                        <p>Crafting timeless luxury since 2024.</p>
                     </div>
-                    <nav class="footer-links" aria-label="Footer Navigation">
-                        <h4>Quick Links</h4>
+                    <nav class="footer-section" aria-label="Footer Navigation">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#collection">Collection</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div class="footer-section">
+                        <h4>Legal</h4>
                         <ul>
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Shipping Info</a></li>
                         </ul>
-                    </nav>
-                    <div class="footer-social">
+                    </div>
+                    <div class="footer-section">
                         <h4>Follow Us</h4>
                         <div class="social-icons">
                             <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                             <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
                             <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2024 AETHER LUXURY. ALL RIGHTS RESERVED.</p>
+                    <p>&copy; 2024 AETHER LUXURY WATCHES. ALL RIGHTS RESERVED.</p>
                 </div>
             </div>
         </footer>
     </main>
 
-    <!-- Scripts - Loaded with Defer for Performance -->
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <script>
-        // Optimization: Run on DOMContentLoaded for faster visual feedback
+        // ===== INITIALIZATION =====
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize Locomotive Scroll
-            const scroller = new LocomotiveScroll({
-                el: document.querySelector('[data-scroll-container]'),
-                smooth: true,
-                multiplier: 1,
-                lerp: 0.07,
-                touchMultiplier: 2
-            });
-
-            // GSAP ScrollTrigger Integration
-            gsap.registerPlugin(ScrollTrigger);
-            scroller.on('scroll', ScrollTrigger.update);
-
-            ScrollTrigger.scrollerProxy('[data-scroll-container]', {
-                scrollTop(value) {
-                    return arguments.length ? scroller.scrollTo(value, 0, 0) : scroller.scroll.instance.scroll.y;
-                },
-                getBoundingClientRect() {
-                    return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-                },
-                pinType: document.querySelector('[data-scroll-container]').style.transform ? "transform" : "fixed"
-            });
-
-            // Loader Timeline
-            const tl = gsap.timeline();
-            tl.to('.progress-bar', { width: '100%', duration: 0.8, ease: 'power2.inOut' })
-              .to('.loader', { yPercent: -100, duration: 0.8, ease: 'expo.inOut', delay: 0.2 })
+            // Loader Animation
+            const loaderTL = gsap.timeline();
+            loaderTL.to('.progress-bar', { width: '100%', duration: 0.8, ease: 'power2.inOut' })
+              .to('.loader', { yPercent: -100, duration: 0.8, ease: 'expo.inOut', delay: 0.2 }, 0.3)
               .from('.navbar', { y: -50, opacity: 0, duration: 0.6, ease: 'power3.out' }, "-=0.4")
               .from('.hero-title', { y: 50, opacity: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' }, "-=0.4")
               .from('.main-watch', { scale: 0.8, opacity: 0, duration: 1, ease: 'power2.out' }, "-=0.6");
 
-            // Handle Hash Links for Locomotive Scroll
+            // Scroll Animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero Watch Float Animation
+            gsap.to('.main-watch', {
+                y: -30,
+                duration: 3,
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+
+            // Product Cards Stagger Animation
+            gsap.from('.product-card', {
+                scrollTrigger: {
+                    trigger: '.collection',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.1,
+                ease: 'power3.out'
+            });
+
+            // Feature Cards Animation
+            gsap.from('.feature-card', {
+                scrollTrigger: {
+                    trigger: '.features',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                y: 40,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.15,
+                ease: 'power2.out'
+            });
+
+            // About Section Animation
+            gsap.from('.about-text', {
+                scrollTrigger: {
+                    trigger: '.about',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                x: -50,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+
+            gsap.from('.about-stats', {
+                scrollTrigger: {
+                    trigger: '.about',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                x: 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+
+            // ===== INTERACTIVE FEATURES =====
+
+            // Product Card Hover Effects
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card, { y: -10, duration: 0.3, ease: 'power2.out' });
+                });
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
+                });
+            });
+
+            // Smooth Scroll for Hash Links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const target = this.getAttribute('href');
-                    if(target === '#') return;
-                    scroller.scrollTo(target);
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        gsap.to(window, {
+                            scrollTo: { y: target, offsetY: 80 },
+                            duration: 1,
+                            ease: 'power3.inOut'
+                        });
+                    }
                 });
             });
 
-            // Optimized 3D Tilt with RequestAnimationFrame
-            const cards = document.querySelectorAll('.feature-card');
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = (e.clientX - rect.left) / rect.width - 0.5;
-                    const y = (e.clientY - rect.top) / rect.height - 0.5;
-                    
-                    gsap.to(card, {
-                        rotateX: y * -15,
-                        rotateY: x * 15,
-                        duration: 0.4,
-                        ease: 'power2.out',
-                        overwrite: 'auto'
-                    });
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    gsap.to(card, {
-                        rotateX: 0,
-                        rotateY: 0,
-                        duration: 0.6,
-                        ease: 'elastic.out(1, 0.5)'
-                    });
+            // Cart Button Counter
+            let cartCount = 0;
+            const cartBtn = document.querySelector('.cart-btn');
+            const addCartBtns = document.querySelectorAll('.btn-add-cart');
+            
+            addCartBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    cartCount++;
+                    cartBtn.setAttribute('data-count', cartCount);
+                    gsap.to(cartBtn, { scale: 1.2, duration: 0.3, yoyo: true, repeat: 1 });
                 });
             });
 
-            ScrollTrigger.addEventListener('refresh', () => scroller.update());
-            ScrollTrigger.refresh();
+            // Contact Form Submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    gsap.to(contactForm, { opacity: 0.5, duration: 0.3 });
+                    setTimeout(() => {
+                        alert('Thank you for your message! We will get back to you soon.');
+                        contactForm.reset();
+                        gsap.to(contactForm, { opacity: 1, duration: 0.3 });
+                    }, 500);
+                });
+            }
+
+            // Mobile Menu Toggle (if needed)
+            const navLinks = document.querySelector('.nav-links');
+            const navBtn = document.querySelector('.nav-btn');
+            
+            // Navbar Scroll Effect
+            let lastScrollY = 0;
+            window.addEventListener('scroll', () => {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                lastScrollY = window.scrollY;
+            });
         });
     </script>
 </body>
