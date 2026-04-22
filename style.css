@@ -1,503 +1,308 @@
-/* Shopify-Inspired 3D Advanced Style.css - Full File */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendLuxuryShop - Cinematic AI Luxury Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%2300ff88'>🛍️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-/* === ROOT VARIABLES === */
-:root {
-  --primary: #ff6b6b;
-  --secondary: #4ecdc4;
-  --accent: #45b7d1;
-  --dark: #1a1a2e;
-  --darker: #16213e;
-  --light: #f8f9fa;
-  --white: #ffffff;
-  --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  --shadow-1: 0 10px 30px rgba(0,0,0,0.2);
-  --shadow-2: 0 20px 60px rgba(0,0,0,0.3);
-  --shadow-3: 0 30px 80px rgba(0,0,0,0.4);
-}
+<body>
+  <!-- LOADING SCREEN -->
+  <div class="loading-screen" id="loading">
+    <div class="logo-spin">🛍️</div>
+    <div class="loading-text">Initializing AI Experience...</div>
+  </div>
 
-/* === BASE RESET & TYPOGRAPHY === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <!-- PARTICLES SYSTEM -->
+  <div id="particles"></div>
 
-html {
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  overflow-x: hidden;
-}
+  <!-- CINEMATIC NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <span class="logo-icon">🛍️</span>
+      <span>TrendLuxuryShop</span>
+    </div>
+    <div class="nav-links">
+      <a href="#scene1" class="nav-link active" data-scroll="scene1">Home</a>
+      <a href="#scene2" class="nav-link" data-scroll="scene2">AI</a>
+      <a href="#scene3" class="nav-link" data-scroll="scene3">Products</a>
+      <a href="#scene4" class="nav-link" data-scroll="scene4">Chat</a>
+      <a href="#scene5" class="nav-link" data-scroll="scene5">Start</a>
+    </div>
+  </nav>
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--dark);
-  color: var(--white);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+  <!-- SCROLL SCENES -->
+  <section id="scene1" class="scene scene1 active">
+    <div class="brand-reveal">
+      <div class="brand-logo">TrendLuxuryShop</div>
+      <div class="brand-subtitle">
+        AI-powered Luxury Shopping Experience<br>
+        <span class="gradient-text">Cinematic 3D Discovery</span>
+      </div>
+    </div>
+  </section>
 
-/* === 3D PERSPECTIVE CONTAINER === */
-body {
-  perspective: 1000px;
-  perspective-origin: center center;
-  transform-style: preserve-3d;
-}
+  <section id="scene2" class="scene scene2">
+    <div class="ai-intro">
+      <h1 class="ai-title">Talk to AI</h1>
+      <div class="ai-box">
+        <div class="ai-input-container">
+          <input type="text" class="ai-input" placeholder="💭 Ask AI about any product..." id="aiInput">
+          <button class="ai-btn" id="aiSend">Ask AI</button>
+        </div>
+        <div class="ai-response" id="aiResponse"></div>
+      </div>
+    </div>
+  </section>
 
-/* === PARTICLE SYSTEM === */
-#particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  background: radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%),
-              radial-gradient(circle at 40% 40%, rgba(120,219,255,0.3) 0%, transparent 50%);
-}
+  <section id="scene3" class="scene scene3">
+    <div class="products-hero">
+      <div class="product-card" data-product="watch">
+        <div class="product-icon">⌚</div>
+        <h3 class="product-title">AI Smart Watch Ultra</h3>
+        <div class="product-price">$499</div>
+        <p class="product-desc">Health tracking • AI assistant • Sapphire crystal</p>
+      </div>
+      
+      <div class="product-card" data-product="headphones">
+        <div class="product-icon">🎧</div>
+        <h3 class="product-title">Quantum AirPods Pro</h3>
+        <div class="product-price">$299</div>
+        <p class="product-desc">Spatial audio • AI noise cancel • Titanium build</p>
+      </div>
+      
+      <div class="product-card" data-product="laptop">
+        <div class="product-icon">💻</div>
+        <h3 class="product-title">CyberBook Pro M3</h3>
+        <div class="product-price">$2,499</div>
+        <p class="product-desc">AI-accelerated • 8K display • Liquid metal</p>
+      </div>
+      
+      <div class="product-card" data-product="sneakers">
+        <div class="product-icon">👟</div>
+        <h3 class="product-title">HyperForce Sneakers</h3>
+        <div class="product-price">$249</div>
+        <p class="product-desc">Adaptive AI cushioning • Limited edition</p>
+      </div>
+    </div>
+  </section>
 
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: var(--gradient-3);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: float 20s infinite linear;
-}
+  <section id="scene4" class="scene scene4">
+    <div class="ai-chat-container">
+      <h2 class="chat-title">AI Shopping Assistant</h2>
+      <div class="chat-box" id="chatBox">
+        <div class="ai-message">
+          <div class="ai-avatar">🤖</div>
+          <div class="message-content">
+            <p>Hi! I'm your AI shopping assistant. Ask me about products, styling tips, or comparisons! 🚀</p>
+          </div>
+        </div>
+      </div>
+      <div class="chat-input-container">
+        <input type="text" id="chatInput" class="chat-input" placeholder="💭 Type your question...">
+        <button class="ai-btn" id="chatSend">Send</button>
+      </div>
+    </div>
+  </section>
 
-.particle:nth-child(odd) { background: var(--gradient-1); }
-.particle:nth-child(even) { background: var(--gradient-2); }
+  <section id="scene5" class="scene scene5">
+    <div class="cta-hero">
+      <h1 class="cta-title">Discover the Future</h1>
+      <p class="cta-subtitle">of Luxury Shopping</p>
+      <div class="cta-buttons">
+        <button class="cta-primary ai-btn">Start Exploring</button>
+        <button class="cta-secondary glass-btn">Watch Demo</button>
+      </div>
+    </div>
+  </section>
 
-@keyframes float {
-  0% {
-    transform: translateY(100vh) rotate(0deg) scale(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-    transform: translateY(90vh) rotate(90deg) scale(1);
-  }
-  90% {
-    opacity: 1;
-    transform: translateY(10vh) rotate(270deg) scale(1);
-  }
-  100% {
-    transform: translateY(-10vh) rotate(360deg) scale(0);
-    opacity: 0;
-  }
-}
+  <script>
+    // ADVANCED JAVASCRIPT FOR CINEMATIC EXPERIENCE
+    class CinematicShop {
+      constructor() {
+        this.currentScene = 0;
+        this.init();
+      }
 
-/* === SCROLL SECTIONS === */
-section {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  scroll-snap-align: start;
-  transform-style: preserve-3d;
-}
+      init() {
+        this.createParticles();
+        this.initScrollSnap();
+        this.initNavbar();
+        this.initAI();
+        this.initProducts();
+        this.hideLoading();
+        this.initSmoothScroll();
+      }
 
-/* === HERO SECTION 3D === */
-#hero {
-  background: var(--gradient-1);
-  position: relative;
-  overflow: hidden;
-}
+      createParticles() {
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 80; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.width = particle.style.height = (Math.random() * 6 + 2) + 'px';
+          particle.style.animationDuration = (Math.random() * 15 + 20) + 's';
+          particle.style.animationDelay = Math.random() * 20 + 's';
+          container.appendChild(particle);
+        }
+      }
 
-.hero-content {
-  text-align: center;
-  transform: translateZ(100px) rotateX(10deg);
-  animation: heroFloat 6s ease-in-out infinite;
-}
+      initScrollSnap() {
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            requestAnimationFrame(() => {
+              const scroll = window.scrollY;
+              const sceneHeight = window.innerHeight;
+              const newScene = Math.round(scroll / sceneHeight);
+              
+              if (newScene !== this.currentScene) {
+                this.currentScene = newScene;
+                this.updateScenes(newScene);
+                this.updateNavbar(newScene);
+              }
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      }
 
-@keyframes heroFloat {
-  0%, 100% { transform: translateZ(100px) rotateX(10deg) translateY(0px); }
-  50% { transform: translateZ(120px) rotateX(5deg) translateY(-20px); }
-}
+      updateScenes(sceneIndex) {
+        document.querySelectorAll('.scene').forEach((scene, index) => {
+          scene.classList.toggle('active', index === sceneIndex);
+        });
+      }
 
-.hero-title {
-  font-size: clamp(3rem, 8vw, 8rem);
-  font-weight: 800;
-  margin-bottom: 1rem;
-  background: linear-gradient(45deg, var(--white), var(--light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 30px rgba(255,255,255,0.5);
-  animation: titleGlow 3s ease-in-out infinite alternate;
-}
+      updateNavbar(sceneIndex) {
+        document.querySelectorAll('.nav-link').forEach((link, index) => {
+          link.classList.toggle('active', index === sceneIndex);
+        });
+      }
 
-@keyframes titleGlow {
-  from { filter: drop-shadow(0 0 20px var(--white)); }
-  to { filter: drop-shadow(0 0 40px var(--white)); }
-}
+      initNavbar() {
+        document.querySelectorAll('.nav-link[data-scroll]').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.getElementById(link.dataset.scroll);
+            const sceneIndex = Array.from(document.querySelectorAll('.scene')).indexOf(target);
+            window.scrollTo({ top: sceneIndex * window.innerHeight, behavior: 'smooth' });
+          });
+        });
+      }
 
-.hero-subtitle {
-  font-size: clamp(1.2rem, 3vw, 2rem);
-  font-weight: 300;
-  opacity: 0.9;
-  margin-bottom: 2rem;
-  transform: translateZ(50px);
-}
+      initAI() {
+        const aiInput = document.getElementById('aiInput');
+        const aiSend = document.getElementById('aiSend');
+        const aiResponse = document.getElementById('aiResponse');
 
-.cta-button {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  background: var(--white);
-  color: var(--dark);
-  text-decoration: none;
-  border-radius: 50px;
-  transform: translateZ(80px) scale(1);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: var(--shadow-2);
-}
+        const responses = {
+          'watch': 'AI Smart Watch Ultra: 14-day battery, health AI, sapphire crystal. Perfect luxury fitness companion.',
+          'headphones': 'Quantum AirPods Pro: Spatial audio, AI noise cancellation, 30hr battery, titanium build.',
+          'laptop': 'CyberBook Pro M3: AI Neural Engine, 8K display, liquid metal, unmatched performance.',
+          'sneakers': 'HyperForce: Adaptive AI cushioning, self-lacing, limited edition luxury streetwear.',
+          'default': "That's an excellent choice! This product features cutting-edge AI technology, premium materials, and luxury craftsmanship. Want specific details?"
+        };
 
-.cta-button:hover {
-  transform: translateZ(100px) scale(1.1) rotateY(10deg);
-  box-shadow: var(--shadow-3);
-}
+        function showResponse(text) {
+          aiResponse.innerHTML = `<div class="response-text">${text}</div>`;
+          aiResponse.classList.add('show');
+        }
 
-/* === 3D PRODUCT CARDS === */
-#products {
-  background: var(--darker);
-  gap: 2rem;
-  padding: 2rem;
-}
+        aiSend.addEventListener('click', () => {
+          const query = aiInput.value.toLowerCase();
+          aiInput.value = '';
+          setTimeout(() => showResponse(responses[query] || responses.default), 500);
+        });
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  max-width: 1200px;
-  width: 100%;
-  padding: 2rem;
-}
+        // Chat functionality
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+        const chatBox = document.getElementById('chatBox');
 
-.product-card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 2rem;
-  text-align: center;
-  transform: translateZ(0) rotateY(0deg) scale(1);
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  border: 1px solid rgba(255,255,255,0.1);
-  position: relative;
-  overflow: hidden;
-}
+        chatSend.addEventListener('click', () => this.sendChatMessage(chatInput, chatBox));
+        chatInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') this.sendChatMessage(chatInput, chatBox);
+        });
+      }
 
-.product-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s;
-}
+      sendChatMessage(input, chatBox) {
+        const text = input.value.trim();
+        if (!text) return;
 
-.product-card:hover::before {
-  left: 100%;
-}
+        const message = document.createElement('div');
+        message.className = 'ai-message user-message';
+        message.innerHTML = `
+          <div class="ai-avatar">👤</div>
+          <div class="message-content"><p>${text}</p></div>
+        `;
+        chatBox.appendChild(message);
+        input.value = '';
 
-.product-card:hover {
-  transform: translateZ(80px) rotateY(15deg) rotateX(10deg) scale(1.05);
-  background: rgba(255,255,255,0.1);
-  box-shadow: var(--shadow-3);
-}
+        setTimeout(() => {
+          const response = document.createElement('div');
+          response.className = 'ai-message';
+          response.innerHTML = `
+            <div class="ai-avatar">🤖</div>
+            <div class="message-content"><p>Great question! ${text.includes('watch') ? 'The Smart Watch Ultra features...' : 'This product offers premium AI features and luxury design.'}</p></div>
+          `;
+          chatBox.appendChild(response);
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }, 1000);
+      }
 
-.product-image {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 1.5rem;
-  background: var(--gradient-2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  transform: translateZ(40px);
-  transition: all 0.4s ease;
-}
+      initProducts() {
+        document.querySelectorAll('.product-card').forEach((card, index) => {
+          card.style.animationDelay = `${index * 0.2}s`;
+          
+          card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateZ(100px) rotateX(10deg) rotateY(15deg) scale(1.05)';
+          });
+          
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateZ(0) rotateX(0) rotateY(0) scale(1)';
+          });
+        });
+      }
 
-.product-card:hover .product-image {
-  transform: translateZ(60px) rotateY(180deg);
-}
+      hideLoading() {
+        setTimeout(() => {
+          const loading = document.getElementById('loading');
+          loading.style.opacity = '0';
+          setTimeout(() => loading.style.display = 'none', 1000);
+        }, 2500);
+      }
 
-.product-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
+      initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const target = document.getElementById(targetId);
+            const sceneIndex = Array.from(document.querySelectorAll('.scene')).indexOf(target);
+            window.scrollTo({
+              top: sceneIndex * window.innerHeight,
+              behavior: 'smooth'
+            });
+          });
+        });
+      }
+    }
 
-.product-price {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
+    // Initialize cinematic experience
+    document.addEventListener('DOMContentLoaded', () => {
+      window.app = new CinematicShop();
+    });
 
-/* === FEATURES SECTION === */
-#features {
-  background: var(--gradient-3);
-  flex-direction: column;
-  text-align: center;
-  padding: 4rem 2rem;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  width: 100%;
-  margin-top: 3rem;
-}
-
-.feature-item {
-  transform: translateZ(0);
-  transition: all 0.5s ease;
-  opacity: 0;
-  animation: fadeInUp 1s ease forwards;
-}
-
-.feature-item:nth-child(1) { animation-delay: 0.1s; }
-.feature-item:nth-child(2) { animation-delay: 0.2s; }
-.feature-item:nth-child(3) { animation-delay: 0.3s; }
-.feature-item:nth-child(4) { animation-delay: 0.4s; }
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateZ(50px) translateY(0);
-  }
-}
-
-.feature-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1rem;
-  background: rgba(255,255,255,0.2);
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  transform: translateZ(30px);
-}
-
-/* === 3D NAVBAR === */
-.navbar {
-  position: fixed;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%) translateZ(100px);
-  background: rgba(0,0,0,0.3);
-  backdrop-filter: blur(20px);
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  display: flex;
-  gap: 2rem;
-  z-index: 1000;
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: all 0.4s ease;
-}
-
-.navbar.scrolled {
-  transform: translateX(-50%) translateZ(50px) scale(0.95);
-  background: rgba(0,0,0,0.5);
-}
-
-.nav-link {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  transform: translateZ(20px);
-}
-
-.nav-link:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateZ(40px) scale(1.1);
-}
-
-/* === PARALLAX SCROLL EFFECTS === */
-.parallax {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  will-change: transform;
-}
-
-#hero .parallax {
-  background-image: linear-gradient(45deg, var(--gradient-1), var(--gradient-2));
-  animation: parallaxMove 20s ease-in-out infinite;
-}
-
-@keyframes parallaxMove {
-  0%, 100% { transform: scale(1) rotateZ(0deg); }
-  50% { transform: scale(1.1) rotateZ(2deg); }
-}
-
-/* === SMOOTH SCROLL ANIMATIONS === */
-.fade-in {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.slide-in-left {
-  opacity: 0;
-  transform: translateX(-100px) translateZ(0);
-  transition: all 0.8s ease;
-}
-
-.slide-in-left.visible {
-  opacity: 1;
-  transform: translateX(0) translateZ(50px);
-}
-
-/* === 3D BUTTON EFFECTS === */
-.btn-3d {
-  position: relative;
-  display: inline-block;
-  padding: 1rem 2rem;
-  background: var(--gradient-1);
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  transform-style: preserve-3d;
-  transition: all 0.3s ease;
-  box-shadow: var(--shadow-1);
-}
-
-.btn-3d::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--gradient-2);
-  border-radius: 50px;
-  transform: translateZ(-1px);
-  transition: all 0.3s ease;
-}
-
-.btn-3d:hover {
-  transform: translateY(-5px) translateZ(20px);
-  box-shadow: var(--shadow-3);
-}
-
-.btn-3d:hover::before {
-  transform: translateZ(5px);
-}
-
-/* === RESPONSIVE DESIGN === */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
-  }
-  
-  .product-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .hero-title {
-    font-size: 3rem;
-  }
-}
-
-/* === LOADING ANIMATION === */
-.loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--dark);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 0.5s ease;
-}
-
-.loader {
-  width: 60px;
-  height: 60px;
-  border: 4px solid rgba(255,255,255,0.1);
-  border-top: 4px solid var(--primary);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  transform: translateZ(50px);
-}
-
-@keyframes spin {
-  0% { transform: translateZ(50px) rotate(0deg); }
-  100% { transform: translateZ(50px) rotate(360deg); }
-}
-
-/* === CUSTOM SCROLLBAR === */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--darker);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--gradient-1);
-  border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--gradient-2);
-}
-
-/* === GLASSMORPHISM EFFECTS === */
-.glass {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 20px;
-}
-
-/* === FINAL 3D TRANSFORM EFFECTS === */
-.tilt-card {
-  transition: transform 0.2s ease-out;
-  transform-style: preserve-3d;
-}
-
-.tilt-card:hover {
-  transform: rotateX(5deg) rotateY(5deg) scale(1.02);
-}
+    // Prevent horizontal scroll
+    window.addEventListener('scroll', (e) => {
+      if (window.scrollX > 0) window.scrollTo(0, window.scrollY);
+    }, { passive: false });
+  </script>
+</body>
+</html>
